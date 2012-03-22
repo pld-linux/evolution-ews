@@ -1,11 +1,11 @@
 Summary:	Evolution extension for Exchange Web Services
 Name:		evolution-ews
-Version:	3.3.91
+Version:	3.3.92
 Release:	1
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.3/%{name}-%{version}.tar.xz
-# Source0-md5:	5a02d3e93f16dea994eccea2028457c5
+# Source0-md5:	7569af1532e519bf8fd9ead82823e72f
 URL:		http://projects.gnome.org/evolution/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.58
@@ -18,6 +18,7 @@ BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libical-devel
 BuildRequires:	libsoup-devel >= 2.30.0
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRequires:	tar >= 1:1.22
@@ -45,6 +46,8 @@ This package provides development files for ews library.
 %setup -q
 
 %build
+%{__intltoolize}
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
