@@ -1,17 +1,17 @@
 Summary:	Evolution extension for Exchange Web Services
 Name:		evolution-ews
-Version:	3.4.0
+Version:	3.4.1
 Release:	1
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	53c4b6f61f47e5d1d30bc688b0ace80b
+# Source0-md5:	0bbbc704bffb0bf4b85fd97c564c2266
 URL:		http://projects.gnome.org/evolution/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	evolution-data-server-devel >= 3.4.0
-BuildRequires:	evolution-devel >= 3.4.0
+BuildRequires:	evolution-data-server-devel >= 3.4.1
+BuildRequires:	evolution-devel >= 3.4.1
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.26.0
 BuildRequires:	gtk-doc >= 1.9
@@ -23,8 +23,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	evolution >= 3.4.0
-Requires:	evolution-data-server >= 3.4.0
+Requires:	evolution >= 3.4.1
+Requires:	evolution-data-server >= 3.4.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +36,7 @@ servers, versions 2007 and later, through its Exchange Web Services
 Summary:	Development files for ews library
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	evolution-data-server-devel >= 3.4.0
+Requires:	evolution-data-server-devel >= 3.4.1
 Requires:	libsoup-devel >= 2.30.0
 
 %description devel
