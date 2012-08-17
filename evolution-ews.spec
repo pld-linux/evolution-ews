@@ -1,11 +1,11 @@
 Summary:	Evolution extension for Exchange Web Services
 Name:		evolution-ews
-Version:	3.4.3
+Version:	3.4.4
 Release:	1
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	02185d958d55e3a0cdd8bbb7d19ac9f7
+# Source0-md5:	ed219c94a9603e4ea3afde83c25f2182
 URL:		http://projects.gnome.org/evolution/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.58
