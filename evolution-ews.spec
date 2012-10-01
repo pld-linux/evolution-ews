@@ -1,19 +1,19 @@
 Summary:	Evolution extension for Exchange Web Services
 Name:		evolution-ews
-Version:	3.4.4
+Version:	3.6.0
 Release:	1
 License:	LGPL v2+
 Group:		Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	ed219c94a9603e4ea3afde83c25f2182
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.6/%{name}-%{version}.tar.xz
+# Source0-md5:	0fce058ae2acafc877ba3329a425b199
 URL:		http://projects.gnome.org/evolution/
-BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	evolution-data-server-devel >= %{version}
 BuildRequires:	evolution-devel >= %{version}
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libical-devel
@@ -48,7 +48,7 @@ This package provides development files for ews library.
 %build
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution-data-server-*/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution-data-server/*/*.la
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution/*/plugins/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution/*/modules/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name}
@@ -80,17 +80,18 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/liblzx.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/liblzx.so.0
-%attr(755,root,root) %{_libdir}/evolution-data-server-3.4/libeews-1.2.so*
-%attr(755,root,root) %{_libdir}/evolution-data-server-3.4/libewsutils.so*
+%attr(755,root,root) %{_libdir}/evolution-data-server-3.6/libeews-1.2.so*
+%attr(755,root,root) %{_libdir}/evolution-data-server-3.6/libewsutils.so*
 %attr(755,root,root) %{_libdir}/evolution-data-server/addressbook-backends/libebookbackendews.so
 %attr(755,root,root) %{_libdir}/evolution-data-server/calendar-backends/libecalbackendews.so
 %attr(755,root,root) %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
+%attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
-%attr(755,root,root) %{_libdir}/evolution/3.4/plugins/liborg-gnome-exchange-ews.so
-%{_libdir}/evolution/3.4/plugins/org-gnome-exchange-ews.eplug
+%attr(755,root,root) %{_libdir}/evolution/3.6/modules/module-ews-configuration.so
+%{_datadir}/evolution/3.6/errors/module-ews-configuration.error
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/liblzx.so
-%{_includedir}/evolution-data-server-3.4
+%{_includedir}/evolution-data-server-3.6/ews
 %{_pkgconfigdir}/libeews-1.2.pc
