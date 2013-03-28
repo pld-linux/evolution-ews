@@ -1,23 +1,23 @@
 Summary:	Evolution extension for Exchange Web Services
 Name:		evolution-ews
-Version:	3.6.4
+Version:	3.8.0
 Release:	1
 License:	LGPL v2+
 Group:		Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	4d64e5a40f5dfd1ae099e68d08db4875
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	659df09460fb97bcba833565fbb97cc8
 URL:		http://projects.gnome.org/evolution/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	evolution-data-server-devel >= %{version}
 BuildRequires:	evolution-devel >= %{version}
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libical-devel
-BuildRequires:	libsoup-devel >= 2.30.0
+BuildRequires:	libsoup-devel >= 2.38.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
@@ -37,7 +37,7 @@ Summary:	Development files for ews library
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	evolution-data-server-devel >= %{version}
-Requires:	libsoup-devel >= 2.30.0
+Requires:	libsoup-devel >= 2.38.1
 
 %description devel
 This package provides development files for ews library.
@@ -62,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution-data-server-*/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution-data-server/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution-data-server/*/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution/*/modules/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
@@ -80,18 +80,18 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/liblzx.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/liblzx.so.0
-%attr(755,root,root) %{_libdir}/evolution-data-server-3.6/libeews-1.2.so*
-%attr(755,root,root) %{_libdir}/evolution-data-server-3.6/libewsutils.so*
+%attr(755,root,root) %{_libdir}/evolution-data-server/libeews-1.2.so*
+%attr(755,root,root) %{_libdir}/evolution-data-server/libewsutils.so*
 %attr(755,root,root) %{_libdir}/evolution-data-server/addressbook-backends/libebookbackendews.so
 %attr(755,root,root) %{_libdir}/evolution-data-server/calendar-backends/libecalbackendews.so
 %attr(755,root,root) %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
 %attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
-%attr(755,root,root) %{_libdir}/evolution/3.6/modules/module-ews-configuration.so
-%{_datadir}/evolution/3.6/errors/module-ews-configuration.error
+%attr(755,root,root) %{_libdir}/evolution/3.8/modules/module-ews-configuration.so
+%{_datadir}/evolution/3.8/errors/module-ews-configuration.error
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/liblzx.so
-%{_includedir}/evolution-data-server-3.6/ews
+%{_includedir}/evolution-data-server/ews
 %{_pkgconfigdir}/libeews-1.2.pc
