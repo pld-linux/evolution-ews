@@ -1,11 +1,11 @@
 Summary:	Evolution extension for Exchange Web Services
 Name:		evolution-ews
-Version:	3.10.4
+Version:	3.12.0
 Release:	1
 License:	LGPL v2+
 Group:		Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	d546d641981292c3a922e837070d5038
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	817cf396d43b8fd3cbab1698d3081c91
 URL:		http://projects.gnome.org/evolution/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
@@ -18,7 +18,7 @@ BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libical-devel
 BuildRequires:	libmspack-devel >= 0.4
-BuildRequires:	libsoup-devel >= 2.38.1
+BuildRequires:	libsoup-devel >= 2.42.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
@@ -26,6 +26,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	evolution >= %{version}
 Requires:	evolution-data-server >= %{version}
+Requires:	libsoup >= 2.42.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,7 +38,7 @@ servers, versions 2007 and later, through its Exchange Web Services
 Summary:	Development files for ews library
 Group:		Development/Libraries
 Requires:	evolution-data-server-devel >= %{version}
-Requires:	libsoup-devel >= 2.38.1
+Requires:	libsoup-devel >= 2.42.0
 
 %description devel
 This package provides development files for ews library.
@@ -81,8 +82,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
 %attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
-%attr(755,root,root) %{_libdir}/evolution/3.10/modules/module-ews-configuration.so
-%{_datadir}/evolution/3.10/errors/module-ews-configuration.error
+%attr(755,root,root) %{_libdir}/evolution/3.12/modules/module-ews-configuration.so
+%{_datadir}/evolution/3.12/errors/module-ews-configuration.error
+%{_datadir}/evolution-data-server/ews
 
 %files devel
 %defattr(644,root,root,755)
