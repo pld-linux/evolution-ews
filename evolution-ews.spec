@@ -1,9 +1,10 @@
 Summary:	Evolution extension for Exchange Web Services
+Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
 Version:	3.12.4
 Release:	1
 License:	LGPL v2+
-Group:		Applications
+Group:		X11/Applications/Mail
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.12/%{name}-%{version}.tar.xz
 # Source0-md5:	e90cc910675f7ece4a62264c4793fc2c
 URL:		http://projects.gnome.org/evolution/
@@ -34,14 +35,23 @@ This package allows Evolution to interact with Microsoft Exchange
 servers, versions 2007 and later, through its Exchange Web Services
 (EWS) interface.
 
+%description -l pl.UTF-8
+Ten pakiet pozwala programowi Evolution współpracować z serwerami
+Microsoft Exchange w wersji 2007 lub nowszej poprzez interfejs EWS
+(Exchange Web Services).
+
 %package devel
-Summary:	Development files for ews library
-Group:		Development/Libraries
+Summary:	Development files for EWS libraries
+Summary(pl.UTF-8):	Pliki programistyczne bibliotek EWS
+Group:		X11/Development/Libraries
 Requires:	evolution-data-server-devel >= %{version}
 Requires:	libsoup-devel >= 2.42.0
 
 %description devel
-This package provides development files for ews library.
+This package provides development files for EWS library.
+
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki programistyczne bibliotek EWS.
 
 %prep
 %setup -q
