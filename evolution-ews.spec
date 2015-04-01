@@ -2,7 +2,7 @@ Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
 Version:	3.16.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Applications/Mail
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.16/%{name}-%{version}.tar.xz
@@ -13,21 +13,21 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	evolution-data-server-devel >= %{version}
 BuildRequires:	evolution-devel >= %{version}
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.34
+BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libical-devel
 BuildRequires:	libmspack-devel >= 0.4
 BuildRequires:	libsoup-devel >= 2.42.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	evolution >= %{version}
 Requires:	evolution-data-server >= %{version}
-Requires:	glib2 >= 1:2.34
+Requires:	glib2 >= 1:2.40.0
 Requires:	libsoup >= 2.42.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,7 +46,7 @@ Summary:	Development files for EWS libraries
 Summary(pl.UTF-8):	Pliki programistyczne bibliotek EWS
 Group:		X11/Development/Libraries
 Requires:	evolution-data-server-devel >= %{version}
-Requires:	glib2-devel >= 1:2.34
+Requires:	glib2-devel >= 1:2.40.0
 Requires:	libsoup-devel >= 2.42.0
 
 %description devel
@@ -77,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution-data-server/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution-data-server/*/*.la
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution/*/modules/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/evolution/modules/*.la
 
 %find_lang %{name}
 
@@ -94,8 +94,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
 %attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
 %{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
-%attr(755,root,root) %{_libdir}/evolution/3.12/modules/module-ews-configuration.so
-%{_datadir}/evolution/3.12/errors/module-ews-configuration.error
+%attr(755,root,root) %{_libdir}/evolution/modules/module-ews-configuration.so
+%{_datadir}/evolution/errors/module-ews-configuration.error
 %{_datadir}/evolution-data-server/ews
 %{_datadir}/appdata/evolution-ews.metainfo.xml
 
