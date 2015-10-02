@@ -1,12 +1,12 @@
 Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
-Version:	3.16.5
+Version:	3.18.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Mail
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	f02b615d5ac12b9eb6c8403fe7891afb
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	ecf97701ecb94c0d648e101b28b42551
 URL:		http://projects.gnome.org/evolution/
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
