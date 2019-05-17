@@ -1,13 +1,13 @@
 Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
-Version:	3.30.3
-Release:	2
+Version:	3.32.2
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Mail
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.30/%{name}-%{version}.tar.xz
-# Source0-md5:	86a88bf61fc563100bacea2121e67cf5
-URL:		http://projects.gnome.org/evolution/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.32/%{name}-%{version}.tar.xz
+# Source0-md5:	4cde47aae0aa72f2fc66856c5c6ed1a1
+URL:		https://wiki.gnome.org/Apps/Evolution
 BuildRequires:	cmake >= 3.1
 BuildRequires:	evolution-data-server-devel >= %{version}
 BuildRequires:	evolution-devel >= %{version}
@@ -18,7 +18,7 @@ BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libical-devel
 BuildRequires:	libmspack-devel >= 0.4
-BuildRequires:	libsoup-devel >= 2.42.0
+BuildRequires:	libsoup-devel >= 2.58
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
@@ -27,7 +27,7 @@ BuildRequires:	xz
 Requires:	evolution >= %{version}
 Requires:	evolution-data-server >= %{version}
 Requires:	glib2 >= 1:2.46.0
-Requires:	libsoup >= 2.42.0
+Requires:	libsoup >= 2.58
 Obsoletes:	evolution-ews-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,8 +45,10 @@ Microsoft Exchange w wersji 2007 lub nowszej poprzez interfejs EWS
 %setup -q
 
 %build
-%cmake \
-	-DLIBEXEC_INSTALL_DIR=%{_libdir} \
+install -d build
+cd build
+%cmake .. \
+	-DLIBEXEC_INSTALL_DIR=%{_libexecdir} \
 	-DENABLE_SCHEMAS_COMPILE=OFF
 
 %{__make}
@@ -54,7 +56,7 @@ Microsoft Exchange w wersji 2007 lub nowszej poprzez interfejs EWS
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
