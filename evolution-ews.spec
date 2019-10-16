@@ -1,12 +1,12 @@
 Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
-Version:	3.32.2
+Version:	3.34.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Mail
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.32/%{name}-%{version}.tar.xz
-# Source0-md5:	4cde47aae0aa72f2fc66856c5c6ed1a1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	daf75f7aed16e2114975e554929638d0
 URL:		https://wiki.gnome.org/Apps/Evolution
 BuildRequires:	cmake >= 3.1
 BuildRequires:	evolution-data-server-devel >= %{version}
@@ -16,7 +16,7 @@ BuildRequires:	glib2-devel >= 1:2.46.0
 BuildRequires:	gtk+3-devel >= 3.10.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libical-devel
+BuildRequires:	libical-glib-devel >= 3.0.5
 BuildRequires:	libmspack-devel >= 0.4
 BuildRequires:	libsoup-devel >= 2.58
 BuildRequires:	libtool >= 2:2.2
@@ -27,6 +27,7 @@ BuildRequires:	xz
 Requires:	evolution >= %{version}
 Requires:	evolution-data-server >= %{version}
 Requires:	glib2 >= 1:2.46.0
+Requires:	libical-glib >= 3.0.5
 Requires:	libsoup >= 2.58
 Obsoletes:	evolution-ews-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
