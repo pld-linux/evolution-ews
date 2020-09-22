@@ -1,12 +1,12 @@
 Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
-Version:	3.36.5
+Version:	3.38.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Mail
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	712d38a75489e2d0ca38880baa01db09
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/evolution-ews/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	a3baed058206d3946910c91c08416a55
 URL:		https://wiki.gnome.org/Apps/Evolution
 BuildRequires:	cmake >= 3.1
 BuildRequires:	evolution-data-server-devel >= %{version}
@@ -16,6 +16,7 @@ BuildRequires:	glib2-devel >= 1:2.46.0
 BuildRequires:	gtk+3-devel >= 3.10.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	json-glib-devel >= 1.0.4
 BuildRequires:	libical-glib-devel >= 3.0.5
 BuildRequires:	libmspack-devel >= 0.4
 BuildRequires:	libsoup-devel >= 2.58
@@ -27,6 +28,7 @@ BuildRequires:	xz
 Requires:	evolution >= %{version}
 Requires:	evolution-data-server >= %{version}
 Requires:	glib2 >= 1:2.46.0
+Requires:	json-glib >= 1.0.4
 Requires:	libical-glib >= 3.0.5
 Requires:	libsoup >= 2.58
 Obsoletes:	evolution-ews-devel
@@ -69,14 +71,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_libdir}/evolution-ews
+%attr(755,root,root) %{_libdir}/evolution/modules/module-ews-configuration.so
+%attr(755,root,root) %{_libdir}/evolution/modules/module-microsoft365-configuration.so
+%attr(755,root,root) %{_libdir}/evolution-data-server/addressbook-backends/libebookbackendews.so
+%attr(755,root,root) %{_libdir}/evolution-data-server/addressbook-backends/libebookbackendmicrosoft365.so
+%attr(755,root,root) %{_libdir}/evolution-data-server/calendar-backends/libecalbackendews.so
+%attr(755,root,root) %{_libdir}/evolution-data-server/calendar-backends/libecalbackendmicrosoft365.so
+%attr(755,root,root) %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
+%{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
+%attr(755,root,root) %{_libdir}/evolution-data-server/camel-providers/libcamelmicrosoft365.so
+%{_libdir}/evolution-data-server/camel-providers/libcamelmicrosoft365.urls
+%attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
+%attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-microsoft365-backend.so
 %attr(755,root,root) %{_libdir}/evolution-ews/libcamelews-priv.so
 %attr(755,root,root) %{_libdir}/evolution-ews/libevolution-ews.so
-%attr(755,root,root) %{_libdir}/evolution-data-server/addressbook-backends/libebookbackendews.so
-%attr(755,root,root) %{_libdir}/evolution-data-server/calendar-backends/libecalbackendews.so
-%attr(755,root,root) %{_libdir}/evolution-data-server/camel-providers/libcamelews.so
-%attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-ews-backend.so
-%{_libdir}/evolution-data-server/camel-providers/libcamelews.urls
-%attr(755,root,root) %{_libdir}/evolution/modules/module-ews-configuration.so
+%attr(755,root,root) %{_libdir}/evolution-ews/libevolution-microsoft365.so
 %{_datadir}/evolution/errors/module-ews-configuration.error
 %{_datadir}/evolution-data-server/ews
 %{_datadir}/metainfo/org.gnome.Evolution-ews.metainfo.xml
