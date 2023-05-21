@@ -1,25 +1,25 @@
 Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
-Version:	3.44.4
-Release:	2
+Version:	3.46.4
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Mail
-Source0:	https://download.gnome.org/sources/evolution-ews/3.44/%{name}-%{version}.tar.xz
-# Source0-md5:	08dcfad674ddb3a50240ab65da57016b
+Source0:	https://download.gnome.org/sources/evolution-ews/3.46/%{name}-%{version}.tar.xz
+# Source0-md5:	8ad98f4335debf04c6b1b55dc8e1e78e
 URL:		https://wiki.gnome.org/Apps/Evolution
 BuildRequires:	cmake >= 3.1
 BuildRequires:	evolution-data-server-devel >= %{version}
 BuildRequires:	evolution-devel >= %{version}
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.62
+BuildRequires:	glib2-devel >= 1:2.68
 BuildRequires:	gtk+3-devel >= 3.10.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	json-glib-devel >= 1.0.4
 BuildRequires:	libical-glib-devel >= 3.0.5
 BuildRequires:	libmspack-devel >= 0.4
-BuildRequires:	libsoup-devel >= 2.58
+BuildRequires:	libsoup3-devel >= 3.0
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.605
@@ -28,10 +28,10 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	evolution >= %{version}
 Requires:	evolution-data-server >= %{version}
-Requires:	glib2 >= 1:2.62
+Requires:	glib2 >= 1:2.68
 Requires:	json-glib >= 1.0.4
 Requires:	libical-glib >= 3.0.5
-Requires:	libsoup >= 2.58
+Requires:	libsoup3 >= 3.0
 Obsoletes:	evolution-ews-devel < 3.24.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
