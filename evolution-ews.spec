@@ -1,14 +1,14 @@
 Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
-Version:	3.50.3
+Version:	3.52.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Mail
-Source0:	https://download.gnome.org/sources/evolution-ews/3.50/%{name}-%{version}.tar.xz
-# Source0-md5:	57da1f4ca5318560a0572419dd62fb8f
+Source0:	https://download.gnome.org/sources/evolution-ews/3.52/%{name}-%{version}.tar.xz
+# Source0-md5:	4b0f654b1853f8938dfee9d764e0b7fa
 URL:		https://wiki.gnome.org/Apps/Evolution
-BuildRequires:	cmake >= 3.1
+BuildRequires:	cmake >= 3.15
 BuildRequires:	evolution-data-server-devel >= %{version}
 BuildRequires:	evolution-data-server-gtk3-devel >= %{version}
 BuildRequires:	evolution-devel >= %{version}
@@ -50,13 +50,11 @@ Microsoft Exchange w wersji 2007 lub nowszej poprzez interfejs EWS
 %setup -q
 
 %build
-install -d build
-cd build
-%cmake .. \
+%cmake -B build \
 	-DLIBEXEC_INSTALL_DIR=%{_libexecdir} \
 	-DENABLE_SCHEMAS_COMPILE=OFF
 
-%{__make}
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
