@@ -1,13 +1,13 @@
 Summary:	Evolution extension for Exchange Web Services
 Summary(pl.UTF-8):	Rozszerzenie Evolution dla Exchange Web Services
 Name:		evolution-ews
-Version:	3.52.4
+Version:	3.54.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Applications/Mail
-Source0:	https://download.gnome.org/sources/evolution-ews/3.52/%{name}-%{version}.tar.xz
-# Source0-md5:	4fc0d24e12a665a94526208a638659a3
-URL:		https://wiki.gnome.org/Apps/Evolution
+Source0:	https://download.gnome.org/sources/evolution-ews/3.54/%{name}-%{version}.tar.xz
+# Source0-md5:	5d7f4dd09a90b67a830efe812d4fec82
+URL:		https://gitlab.gnome.org/GNOME/evolution/-/wikis/home
 BuildRequires:	cmake >= 3.15
 BuildRequires:	evolution-data-server-devel >= %{version}
 BuildRequires:	evolution-data-server-gtk3-devel >= %{version}
@@ -85,6 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/evolution-data-server/registry-modules/module-microsoft365-backend.so
 %attr(755,root,root) %{_libdir}/evolution-ews/libcamelews-priv.so
 %attr(755,root,root) %{_libdir}/evolution-ews/libevolution-ews.so
+%attr(755,root,root) %{_libdir}/evolution-ews/libevolution-ews-common.so
 %attr(755,root,root) %{_libdir}/evolution-ews/libevolution-microsoft365.so
 %{_datadir}/evolution/errors/module-ews-configuration.error
 %{_datadir}/evolution-data-server/ews
